@@ -32,14 +32,23 @@ namespace FibbonaciSeries
             {
                 listView1.Clear();
             }
-            string number = textBox1.Text.ToString();
-            int n = int.Parse(number);
-            FibbonaciMethod fibonnaciseries = new FibbonaciMethod();
-            List<int> FS = fibonnaciseries.GetFibbonnaciSolution(n);
-            foreach (var item in FS)
+            try
             {
-                listView1.Items.Add(item.ToString());
+                string number = textBox1.Text.ToString();
+                int n = int.Parse(number);
+                FibbonaciMethod fibonnaciseries = new FibbonaciMethod();
+                List<int> FS = fibonnaciseries.GetFibbonnaciSolution(n);
+                foreach (var item in FS)
+                {
+                    listView1.Items.Add(item.ToString());
+                }
             }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Enter Valid Number");
+            }
+            
         }
     }
 }
